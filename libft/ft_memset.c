@@ -6,7 +6,7 @@
 /*   By: mapolat <Polatbey395@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 03:42:29 by mapolat           #+#    #+#             */
-/*   Updated: 2024/12/16 02:52:20 by mapolat          ###   ########.fr       */
+/*   Updated: 2024/12/25 12:31:54 by mapolat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void *ft_memset(void *b, int c, size_t len)
 {
-
+	if(!b)
+	return NULL;
  size_t i=0;
  while(i<len)
  {

@@ -6,7 +6,7 @@
 /*   By: mapolat <Polatbey395@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 08:15:04 by mapolat           #+#    #+#             */
-/*   Updated: 2024/12/16 08:15:05 by mapolat          ###   ########.fr       */
+/*   Updated: 2024/12/25 13:12:53 by mapolat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,24 @@
 
 char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-
-	if(*needle=='\0')
-	return (char*) haystack;
-	size_t i=0;
-	size_t j=0;
-	size_t n=0;
-	while(i<len && haystack[i])
+	size_t i = 0;
+    size_t j = 0;
+    if (*needle == '\0')
+	return (char *)haystack;
+    while (i < len && haystack[i])
 	{
-		n=i;
-		while((needle[j] ==haystack[i]) && needle[j] && haystack[i])
+		if (haystack[i] == needle[0])
 		{
-			j++;
-			i++;
-		}
-		if(needle[j]=='\0')
-		return (char *)&haystack[n];
-		j=0;
-		i++;
-	}
-	return NULL;
+            j = 0;
+            while (i + j < len && haystack[i + j] && needle[j] && haystack[i + j] == needle[j]) {
+                j++;
+            }
+            if (needle[j] == '\0') {
+                return (char *)&haystack[i];
+            }
+        }
+        i++;
+    }
+    return NULL;
 
 }
